@@ -3,8 +3,8 @@
   (:use clojure.set)
   (:use clojure.pprint))
 
-(def settings {:image-extension "webp"
-               :image-padding 3
+(def settings {:image-extension "jpeg"
+               :image-padding 1
                :force-in-order false
                :blur 10})
 
@@ -131,7 +131,7 @@
 
 (defn -main
   [& filename]
-  (let [book (or (next filename) "ufo_54_40.edn")
+  (let [book (or (next filename) "high_ridge.edn")
         contents (read-string (slurp (io/file "resources" book)))
         parsed (parse-string contents)
         output-folder (io/file "resources" (subs book 0 (- (count book) 4)))]
